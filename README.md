@@ -1,27 +1,38 @@
-# FACEAPP_BACKEND_API
+## Smart Brain API
+This is the API for the <a href="https://github.com/BadassHenkka/smart-brain">Smart Brain application.</a>
 
-The API is built in javascript using Express as the server and connects to a PostgreSQL database using the pg package and configured environment variables on the Heroku hosting platform. 
+Smart Brain is a web app that uses the Clarifai API to locate a face in a picture. Using a React.js front-end and Node.js back-end with Express.js as well as a PostgreSQL database to keep track of how many entries a user has made.
 
-It connects to a basic Postgres database with just one users table storing name, email, password and "entries" a count of the number of times they have entered face images to the front end.  
+<a href="https://smart-brain-bh.herokuapp.com/">Check it out on Heroku</a>
 
-The passwords are encrypted with a hash and salt algorithm served up by the bcrypt package. Passwords are retrieved using the same package and the actual user package is never stored to the database. 
+![picture of the app](https://github.com/BadassHenkka/smart-brain/blob/master/smart-brain-example.png)
 
-The server uses Cors authentication to connect between the back end and the [front end](https://github.com/dboland77/smart-brain) as they are served at different domains. (Cors package)
+## Technologies Used
+### Front-End
+* HTML5
+* CSS3
+* React.js
 
-User information is passed to and from the server with JSON and parsed to the relational database.Updates, inserts and selects are handled with basic SQL queries. 
+### Back-End
+* Node.js
+* Express.js
+* PostgreSQL
 
-It has 5 endpoints:
+### NPM Packages
+* Create-React-App
+* Tachyons
+* react-tilt
+* particles.js
+* Bcrypt
+* Postgresql
+* knex
+* body parser
+* cors
+* express
 
-POST /register is used to register the user to the Postgres database.
+### APIs
+* <a href="https://clarifai.com/models/face-detection-image-recognition-model-a403429f2ddf4b49b307e318f00e528b-detection">Clarifai</a>
+* <a href="https://github.com/BadassHenkka/smart-brain">Smart Brain repo</a>
 
-POST /signin is used to sign in to the database (This should be GET and will update in the next release).
-
-GET /profile:id is used to retrieve a user from the database by id
-
-POST /apiRequest is used to communication with the commercial Clarifai API which is used to detect the faces in the images posted
-
-PUT /image is used to update the users entries count in the database when they detect a new image
-
-The server can be accessed on Heroku at the link below:
-
-https://blooming-chamber-64853.herokuapp.com
+## Acknowledgements
+I'd like to thank Andrei Neagoie and his fantastic course which taught me everything from the beginning: https://www.udemy.com/the-complete-web-developer-zero-to-mastery/
