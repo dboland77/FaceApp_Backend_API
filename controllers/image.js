@@ -33,16 +33,16 @@ const handleImage = (req, res, pool) => {
     .then((client) => {
       return client
         .query(
-          "update login set entries = entries + 1 WHERE id = $1 RETURNING entries",
+          "update users set entries = entries + 1 WHERE id = $1 RETURNING entries",
           [id]
         )
         .then((pgresponse) => {
           client.release();
-          res.json(pgresponse.rows[0]);
+          res.json(pgresponse.rows[0].entries);
         })
         .catch((err) => {
           client.release();
-          console.log(err.stack);
+          res.status(400).json("Unable to find this user")
         });
     })
     .catch((err) => res.status(400).json("unable to get entries"));

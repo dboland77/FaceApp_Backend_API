@@ -21,11 +21,11 @@ app.get("/", (req, res) => {
 });
 
 // SIGNIN ROUTE
-app.post("/signin", signin.handleSignin(pool));
+app.post("/signin", signin.handleSignin(pool,bcrypt));
 
 // REGISTER ROUTE
 app.post("/register", (req, res) => {
-  register.handleRegister(req, res, pool);
+  register.handleRegister(req, res, pool,bcrypt);
 });
 
 // PROFILE ROUTE
