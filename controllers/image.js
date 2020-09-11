@@ -9,21 +9,18 @@ dotenv.config();
 
 // API KEY
 const app = new Clarifai.App({
-  apiKey: process.env.API_CLARIFAI
+  apiKey: process.env.API_CLARIFAI,
 });
 
 // Clarifai's face detection magic
 const handleApiCall = (req, res) => {
-  const {URL} = req.body;
+  const { URL } = req.body;
   app.models
-    .predict(
-      Clarifai.GENERAL_MODEL,
-      URL
-    )
+    .predict(Clarifai.FACE_DETECT_MODEL, URL)
     .then((data) => {
       res.json(data);
     })
-    .catch((err) => res.status(400).json("unable to work with API"));
+    .catch((err) => res.status(400).json("badLink"));
 };
 
 const handleImage = (req, res, pool) => {
@@ -42,7 +39,7 @@ const handleImage = (req, res, pool) => {
         })
         .catch((err) => {
           client.release();
-          res.status(400).json("Unable to find this user")
+          res.status(400).json("Unable to find this user");
         });
     })
     .catch((err) => res.status(400).json("unable to get entries"));
