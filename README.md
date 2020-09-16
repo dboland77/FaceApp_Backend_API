@@ -5,7 +5,7 @@ Smart Brain is a web app that uses the Clarifai API to locate a face in a pictur
 
 <a href="https://dave-face-recognition-app.herokuapp.com/">Check it out on Heroku</a>
 
-![picture of the app](https://github.com/BadassHenkka/smart-brain/blob/master/smart-brain-example.png)
+![picture of the app](https://github.com/dboland77/App_Demo.png)
 
 ## Technologies Used
 ### Front-End
